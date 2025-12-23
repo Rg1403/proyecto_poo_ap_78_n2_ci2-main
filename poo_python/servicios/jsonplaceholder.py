@@ -45,4 +45,13 @@ def actualizar_user_api(url):
     }
     respuesta = requests.put(url,json=user)
     if respuesta.status_code == 200:
-        print(f'Usuario creado exitosamente: {respuesta.json()}')
+        print(f'Usuario modificado exitosamente: {respuesta.json()}')
+        
+def eliminar_user_api(url):
+    id_usuario = input('Id usuario: ')
+    
+    url = f'{url}/{id_usuario}'
+    
+    respuesta = requests.delete(url,)
+    if respuesta.status_code == 200:
+        print(f'Usuario eliminado exitosamente: {respuesta.json()}')

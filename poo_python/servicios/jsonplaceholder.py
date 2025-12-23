@@ -55,3 +55,48 @@ def eliminar_user_api(url):
     respuesta = requests.delete(url,)
     if respuesta.status_code == 200:
         print(f'Usuario eliminado exitosamente: {respuesta.json()}')
+        
+def obtener_albums_api(url):
+    respuesta = requests.get(url)
+    if respuesta.status_code == 200:
+        # print(respuesta.json())
+        tabla_albums = PrettyTable()
+        tabla_albums.field_names= ['Id usuario','Id','Titulo']
+        albums = respuesta.json()
+        for album in albums:
+            tabla_albums.add_row([album['Id usuario'],album['Id'],album['Titulo']])
+        print(tabla_albums)
+
+def crear_album_api(url):
+    tittle =  input('titulo: ')
+    
+    user = {
+        "Titulo": tittle,
+    }
+    respuesta = requests.post(url,json=user)
+    if respuesta.status_code == 200 or respuesta.status_code == 201:
+        print(f'album creado exitosamente: {respuesta.json()}')
+    
+def actualizar_album_api(url):
+    id_usuario = input('Id usuario: ')
+    id = input('Usuario: ')
+    tittle = input('titulo')
+    
+    url = f'{url}/{id_usuario}'
+    
+    user = {
+        "Id usuario": id_usuario,
+        "Id": id,
+        "titulo": tittle,
+    }
+    respuesta = requests.put(url,json=user)
+    if respuesta.status_code == 200:
+        print(f'album modificado exitosamente: {respuesta.json()}')
+
+def eliminar_album_api(url):
+    id_album = input('Id album: ')
+    url = f'{url}/{id_album}'
+    
+    respuesta = requests.delete(url,)
+    if respuesta.status_code == 200:
+        print(f'album eliminado exitosamente: {respuesta.json()}')

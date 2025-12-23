@@ -4,7 +4,7 @@ from negocio.negocio_aviones import obtener_datos_aviones
 from negocio.negocio_pasajeros import obtener_datos_pasajeros, crear_pasajero,modificar_pasajero
 from negocio.negocio_usuarios import crear_usuario,login
 from servicios.jsonplaceholder import obtener_users_api,crear_user_api,actualizar_user_api,eliminar_user_api
-from auxiliares.data_api import url_users
+from auxiliares.data_api import url_users,url_albums
 
 def menu_principal():
     while True:
@@ -148,6 +148,23 @@ def menu_aplicacion():
                 else:
                     print('Opción incorrecta, intente nuevamente...')
         elif opcion == '8':
+            while True:
+                menu_api()
+                opcion_api = input('Seleccione su opción [0-4]: ')
+                if opcion_api == '1':
+                    obtener_users_api(url_users)
+                elif opcion_api == '2':
+                    crear_user_api(url_users)
+                elif opcion_api == '3':
+                    actualizar_user_api(url_users)
+                elif opcion_api == '4':
+                    eliminar_user_api(url_users)
+                elif opcion_api == '0':
+                    print('Volviendo al menú principal...')
+                    break
+                else:
+                    print('Opción incorrecta, intente nuevamente...')
+        elif opcion == '9':
             while True:
                 menu_api()
                 opcion_api = input('Seleccione su opción [0-4]: ')

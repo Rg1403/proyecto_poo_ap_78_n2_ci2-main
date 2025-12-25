@@ -3,7 +3,7 @@ from negocio.negocio_aerolineas import obtener_datos_aerolineas,crear_aerolinea,
 from negocio.negocio_aviones import obtener_datos_aviones
 from negocio.negocio_pasajeros import obtener_datos_pasajeros, crear_pasajero,modificar_pasajero
 from negocio.negocio_usuarios import crear_usuario,login
-from servicios.jsonplaceholder import obtener_users_api,crear_user_api,actualizar_user_api,eliminar_user_api
+from servicios.jsonplaceholder import obtener_users_api,crear_user_api,actualizar_user_api,eliminar_user_api,obtener_albums_api,crear_album_api,actualizar_album_api,eliminar_album_api
 from auxiliares.data_api import url_users,url_albums
 
 def menu_principal():
@@ -169,13 +169,13 @@ def menu_aplicacion():
                 menu_api()
                 opcion_api = input('Seleccione su opción [0-4]: ')
                 if opcion_api == '1':
-                    obtener_users_api(url_users)
+                    obtener_albums_api(url_albums)
                 elif opcion_api == '2':
-                    crear_user_api(url_users)
+                    crear_album_api(url_albums)
                 elif opcion_api == '3':
-                    actualizar_user_api(url_users)
+                    actualizar_album_api(url_albums)
                 elif opcion_api == '4':
-                    eliminar_user_api(url_users)
+                    eliminar_user_api(url_albums)
                 elif opcion_api == '0':
                     print('Volviendo al menú principal...')
                     break

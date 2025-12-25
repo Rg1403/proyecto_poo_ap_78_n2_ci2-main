@@ -80,7 +80,7 @@ def crear_album_api(url):
 def actualizar_album_api(url):
     id_usuario = input('Id usuario: ')
     id = input('Usuario: ')
-    tittle = input('titulo')
+    tittle = input('titulo: ')
     
     url = f'{url}/{id_usuario}'
     
